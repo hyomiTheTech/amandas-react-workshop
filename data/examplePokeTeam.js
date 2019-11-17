@@ -4,42 +4,54 @@ you make a request to the PokeAPI server.
 */
 
 const examplePokeTeam = [
-  { id: 1,
-    name: "bulbasaur",
+  {
+    id: 1,
+    name: "David",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+      front_default:
+        "data:image/jpeg;base64,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"
     }
   },
-  { id: 78,
+  {
+    id: 78,
     name: "rapidash",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png"
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png"
     }
   },
-  { id: 134,
+  {
+    id: 134,
     name: "vaporeon",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png"
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/134.png"
     }
   },
-  { id: 25,
+  {
+    id: 25,
     name: "pikachu",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
     }
   },
-  { id: 38,
+  {
+    id: 38,
     name: "ninetales",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png"
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/38.png"
     }
   },
-  { id: 129,
+  {
+    id: 129,
     name: "magikarp",
     sprites: {
-      front_default: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png"
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png"
     }
   }
-]
+];
 
 export default examplePokeTeam;
